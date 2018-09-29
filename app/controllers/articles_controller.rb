@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :set_article, only: [:show]
 
   def index
     @articles = Article.page(params[:page]).per(20)
@@ -21,7 +22,14 @@ class ArticlesController < ApplicationController
     end
   end
 
+
+
+
   private
+
+  def article_params
+    @article = Article.find(params[:id])
+  end
 
   def article_params
     params.require(:article).permit(:title, :content, :image, :role, :user_id, :category_id)

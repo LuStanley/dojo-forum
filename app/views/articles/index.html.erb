@@ -16,12 +16,18 @@
         </thead>
         <tbody>
           <% @articles.each do |article| %>
-            <tr>
-              <td></td>
-              <td><%= article.title %></td>
-              <td></td>
-              <td></td>
-            </tr>
+
+              <tr>
+
+                <td></td>
+
+                <td><%=link_to article.title, article_path(article) %></td>
+
+                <td></td>
+                <td></td>
+
+              </tr>
+
           <% end %>
         </tbody>
       </table>
