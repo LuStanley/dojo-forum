@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit]
+  before_action :set_article, only: [:show, :edit, :update]
 
   def index
     @articles = Article.page(params[:page]).per(20)
@@ -22,6 +22,15 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def update
+    if @article.update(article_params)
+      flash[:notice] = "Artilce was successfully updated"
+      redirect_to article_path(@article)
+    else
+      flash.now[:alert] = "Article was failed to update"
+      render :edit
+    end
+  end
 
 
 
