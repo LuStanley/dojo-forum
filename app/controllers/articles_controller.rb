@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show]
+  before_action :set_article, only: [:show, :edit]
 
   def index
     @articles = Article.page(params[:page]).per(20)
@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
     end
   end
 
-  
+
 
 
   private

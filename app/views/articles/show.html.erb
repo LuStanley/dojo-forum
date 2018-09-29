@@ -5,10 +5,10 @@
         <div class="">
           <strong><h1><%= @article.title %></h1></strong>
         </div>
-        <div class="btn btn-primary">
+        <div class="">
           <%= link_to "Collect" %>
         </div>
-        <div class="btn btn-primary">
+        <div class="">
           <%= link_to "Comment" %>
         </div>
       </div>
@@ -27,6 +27,9 @@
           </div>
           <div class="col-md-12">
             <h4><%= @article.content %></h4>
+          </div>
+          <div class="">
+            <%= link_to "Edit", edit_article_path(@article) %>
           </div>
         </div>
       </div>
