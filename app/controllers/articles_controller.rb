@@ -22,12 +22,12 @@ class ArticlesController < ApplicationController
     end
   end
 
-
+  
 
 
   private
 
-  def article_params
+  def set_article
     @article = Article.find(params[:id])
   end
 
