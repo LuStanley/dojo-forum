@@ -1,1 +1,30 @@
-<h1>前臺</h1>
+<div class="container">
+  <div>
+    <h1>All Articles</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Replies count</th>
+            <th>Title</th>
+            <th>Last replied at</th>
+            <th>Viewed count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @articles.each do |article| %>
+          <tr>
+
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="text-center">
+        <%= paginate @articles %>
+      </div>
+    </div>
+  </div>
+</div>
