@@ -17,7 +17,7 @@
       </div>
       <div>
         <%= f.label :image, "File" %>
-        <%= image_tag @article.image, width: '300px' if @article.image? %>
+        <%= image_tag @article.image_url, width: '300px' if @article.image? %>
         <%= f.file_field :image %>
       </div>
       <div class="form-group">
