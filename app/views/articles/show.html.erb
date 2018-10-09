@@ -12,7 +12,7 @@
           <%= link_to "Comment" %>
         </div>
       </div>
-      <div>
+      <div class="col-md-12">
         <div class="col-md-4">
           <!--user info  -->
 
@@ -27,13 +27,26 @@
           </div>
           <div class="col-md-12">
             <h4><%= @article.content %></h4>
+            <div class="">
+              <%= link_to "Edit", edit_article_path(@article) %>
+            </div>
+            <div class="">
+              <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm:"Are you sure?"} %>
+            </div>
           </div>
-          <div class="">
-            <%= link_to "Edit", edit_article_path(@article) %>
-          </div>
-          <div class="">
-            <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm:"Are you sure?"} %>
-          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="col-md-4">
+          <!--user info  -->
+        </div>
+        <div class="col-md-8">
+          <% @article.comments.each do |comment| %>
+            <div>
+              <p><%= simple_format comment.content %></p>
+            </div>
+            <hr>
+          <% end %>
         </div>
       </div>
     </div>
@@ -42,14 +55,16 @@
 
 <div class="container">
   <div class="row">
-   <%= form_for [@article, @comment] do |f| %>
-    <div class="form-group">
-      <%= f.text_area :content, placeholder: "Leave massage here", class: "form-control" %>
+    <div class="col-md-10">
+      <%= form_for [@article, @comment] do |f| %>
+        <div class="form-group">
+          <%= f.text_area :content, placeholder: "Leave massage here", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit class: "btn btn-primary" %>
+          <%= f.button "Cancel", type: :reset, class: "btn btn-default" %>
+        </div>
+      <% end %>
     </div>
-    <div class="form-group">
-      <%= f.submit class: "btn btn-primary" %>
-      <%= f.button "Cancel", type: :reset, class: "btn btn-default" %>
-    </div>
-  <% end %>
   </div>
 </div>
