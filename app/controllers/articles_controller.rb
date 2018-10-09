@@ -38,6 +38,9 @@ class ArticlesController < ApplicationController
     flash[:alert] = "Article was deleted"
   end
 
+  def show
+    @comment = Comment.new
+  end
 
   private
 
